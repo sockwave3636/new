@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import { Link} from "react-router-dom";
@@ -18,20 +18,20 @@ function Header() {
           <Link to="/applicant">
             <span>Ta Applicant</span>
           </Link>
-          <Link to="/astroprpofile">
+          <Link to="/">
             <span>Department Staff</span>
           </Link>
-          <Link to="/match">
+          <Link to="/">
             <span>Ta Committe</span>
           </Link>
-          <Link to="/kundli">
+          <Link to="/">
             <span>Instructor</span>
           </Link>
-          <Link to="/contactus">
+          <Link to="/">
             <span>Contact Us</span>
           </Link>
         </NavMenu>
-        <Link to="/profile">
+        <Link to="/">
           <UserImag src="https://pbs.twimg.com/profile_images/1701878932176351232/AlNU3WTK_400x400.jpg" />
         </Link>
       </Nav>
@@ -41,33 +41,32 @@ function Header() {
       </MenuIconContainer>
       <Sidebar open={isOpen}>
         <Nav open={isOpen}>
-          <Logo src="/circle.png" />
-          <StyledLink to="/dashboard">
+          <StyledLink to="/home">
             <StyledSpan>Home</StyledSpan>
           </StyledLink>
           <Span />
-          <StyledLink to="/horoscope">
-            <StyledSpan>Horoscope</StyledSpan>
+          <StyledLink to="/applicant">
+            <StyledSpan>Ta Applicant</StyledSpan>
           </StyledLink>
           <Span />
-          <StyledLink to="/astroprpofile">
-            <StyledSpan>Astrologers</StyledSpan>
+          <StyledLink to="/">
+            <StyledSpan>Department Staff</StyledSpan>
           </StyledLink>
           <Span />
-          <StyledLink to="/match">
-            <StyledSpan>Match Making</StyledSpan>
+          <StyledLink to="/">
+            <StyledSpan>Ta Committe</StyledSpan>
           </StyledLink>
           <Span />
-          <StyledLink to="/kundli">
-            <StyledSpan>Free kundli</StyledSpan>
+          <StyledLink to="/">
+            <StyledSpan>Instructor</StyledSpan>
           </StyledLink>
           <Span />
-          <StyledLink to="/contactus">
+          <StyledLink to="/">
             <StyledSpan>Contact Us</StyledSpan>
           </StyledLink>
           <Span />
           <Link to="/profile">
-            <UserImag src="https://pbs.twimg.com/profile_images/1701878932176351232/AlNU3WTK_400x400.jpg" />
+            <UserImag src="/"  alt="logo"/>
           </Link>
         </Nav>
       </Sidebar>
@@ -116,7 +115,7 @@ const Sidebar = styled.div`
   @media (max-width: 768px) {
     display: block;
     position: fixed;
-    // top: 70px;
+    top: 70px; // Adjust this value as needed
     left: ${(props) => (props.open ? "0" : "-100%")};
     width: 200px;
     height: calc(100% - 70px);
@@ -124,11 +123,6 @@ const Sidebar = styled.div`
     transition: left 0.3s ease-in-out;
   }
 `;
-
-const Logo = styled.img`
-  width: 60px;
-`;
-
 const NavMenu = styled.div`
   display: flex;
   flex: 1;
@@ -201,10 +195,9 @@ const MenuIconContainer = styled.div`
     display: block;
     position: fixed;
     top: 10px;
-    left: 10px;
+    left: 10px; // Adjust this value as needed
     z-index: 999;
     color: black;
-    width: 100%;
   }
 `;
 
@@ -223,4 +216,7 @@ const Title = styled.h6`
   font-size: 2rem;
   margin-top: 2.5rem;
   margin-bottom: 3rem;
+  @media (max-width: 768px) {
+    margin-top: 1.2rem;
+  }
 `;
